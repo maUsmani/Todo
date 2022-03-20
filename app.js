@@ -52,6 +52,7 @@ function deleteCheck(e){
         item.parentElement.addEventListener('transitionend', function(){
             item.parentElement.remove();
         });
+        removeLocalTodo(item)
     }
     //checkedMark
     if(item.classList[0] === 'complete-btn'){
@@ -132,4 +133,18 @@ function getTodos(){
         //APPEND TO LIST
         todoList.appendChild(todoDiv)
     });
+}
+
+function removeLocalTodo(todo){
+    let todos;
+    if(localStorage.getItem('todos') === null){
+        todos = [];
+    }
+    else{
+        todos = JSON.parse(localStorage.getItem ('todos'))
+    }
+    
+    const todoIndex = todo.children[0].innerText;
+    todos.splice(todos.indexOf(todoIndex), 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
