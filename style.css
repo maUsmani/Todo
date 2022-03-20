@@ -106,3 +106,40 @@ input:focus {
   transform: translateX(2rem) rotateX(45deg);
   opacity: 0;
 }
+
+select {
+  -webkit-apoearance: none;
+  -moz-apppearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+select {
+  color: #00b09b;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.select::after {
+  content: "\25bC";
+  position: absolute;
+  background: #00b09b;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.select:hover::after {
+  background: white;
+  color: #00b09b;
+}
